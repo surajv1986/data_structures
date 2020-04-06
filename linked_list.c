@@ -86,6 +86,32 @@ int insert_at_end(int val)
 	}
 
 }
+
+int del_at_end(void)
+{
+	struct node *t, *temp;
+
+	t = head;
+	if (t == NULL) {
+	
+		printf("Error: trying to Delete from an empty list\n");
+		exit(1);
+	}
+	/* loop until the second last element is reached */
+	while(t->next->next != NULL) {
+		t = t->next;
+	
+	}
+	/* Debugging print */
+	printf("The data at new tail has to be %d\n", t->data);
+	temp = t;
+	/* remove the tail element*/
+	t->next = NULL;
+
+	return 0;
+
+
+}
 void display_list(void)
 {
 	struct node *temp;
@@ -116,6 +142,8 @@ int main(void)
 	del_at_beg();
 	display_list();
 	insert_at_end(15);
+	display_list();
+	del_at_end();
 	display_list();
 
 	return 0;
