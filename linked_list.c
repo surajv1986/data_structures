@@ -210,8 +210,8 @@ int main(void)
 {
 	/* A menu for linked list */
 	int ret = 0, choice = 0, val = 0, pos = 0;
-	char ch = 'y';
-	while ((ch != 'n') || (ch != 'N')) {
+	char ch;
+	while (1) {
 		printf("1) Insert at begining\n");
 		printf("2) Insert at position\n");
 		printf("3) Insert at end\n");
@@ -219,11 +219,16 @@ int main(void)
 		printf("5) Delete at position\n");
 		printf("6) Delete from end\n");
 		printf("7) display the linked list\n");
+		printf("0) quit the program \n ");
 		printf("Enter your choice \n");
 		scanf("%d", &choice);
 
 		switch (choice) {
 
+		case 0:
+			printf("Quitting.....Thanks......\n");
+			exit(0);
+			break;
 		case 1:
 			printf("Enter the value to be inserted \n");
 			scanf("%d", &val);
@@ -258,8 +263,6 @@ int main(void)
 			printf("Enter a valid input between 1 and 7 \n");
 
 		}
-		printf("Enter 'n' or 'N' to quit the application \n");
-		scanf("%c", &ch);
 	}
 	return 0;
 }
