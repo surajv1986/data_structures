@@ -129,6 +129,11 @@ int insert_at_pos(int val, int pos)
 	}
 	else {
 		while (count != (pos - 1)) {
+
+			if ( t == NULL) {
+				printf(" List Index out of bounds error:exiting\n");
+				exit(1);
+			}
 			/* increment to point to the subsequent element */
 			t = t->next;
 			count++;
@@ -137,7 +142,7 @@ int insert_at_pos(int val, int pos)
 		/* check for insert at end case*/
 		if (t->next == NULL) {
 			printf("In case for ins at end\n");
-		//	insert_at_end(val);
+			insert_at_end(val);
 		} else {
 		/* Debugging print */
 		printf("node will be inserted after %d\n", t->data);
@@ -151,9 +156,45 @@ int insert_at_pos(int val, int pos)
 	return 0;
 }
 
-int delete_at_pos(int pos)
+int del_at_pos(int pos)
 {
+	struct node *t;
+	int count = 1;
+
+	t = head;
+	if (t == NULL) {
+		printf("Error deleting from empty list\n");
+		exit(1);
+	} else {
+		if (pos == 1) {
+			del_at_beg();
+		
+		} else {
+		
+			while (count != (pos - 1)) {
+				t = t->next;
+				count++;
+				if (t == NULL) {
+					printf("ERROR:List Index out of bounds\n");
+					exit(1);
+				}
+			}
+			if (t->next == NULL) {
+				del_at_end();
+			
+			} else {
+			
+				/* Debugging print */
+				printf("node after %d will be removed\n ", t->data);
+				/* link predecessor and successor nodes bypassing the node to be deleted */
+				t->next = t->next->next;
+			}
+
+				
+		}
+		
 	
+	}	
 
 }
 void display_list(void)
@@ -188,6 +229,8 @@ int main(void)
 	del_at_end();
 	display_list();
 	insert_at_pos(10, 5);
+	display_list();
+	del_at_pos(5);
 	display_list();
 
 	return 0;
