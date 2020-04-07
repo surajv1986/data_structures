@@ -1,0 +1,154 @@
+WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
+#1: FILE: linked_list.c:1:
++/* A simple program to demonstrate singly linked list */
+
+WARNING: struct  should normally be const
+#7: FILE: linked_list.c:7:
++struct node {
+
+WARNING: struct  should normally be const
+#9: FILE: linked_list.c:9:
++	struct node *next;
+
+ERROR: do not initialise globals to NULL
+#13: FILE: linked_list.c:13:
++struct node *head = NULL;
+
+WARNING: struct  should normally be const
+#13: FILE: linked_list.c:13:
++struct node *head = NULL;
+
+WARNING: struct  should normally be const
+#17: FILE: linked_list.c:17:
++	struct node *temp;
+
+WARNING: struct  should normally be const
+#19: FILE: linked_list.c:19:
++	temp = (struct node *) malloc(sizeof(struct node));
+
+WARNING: suspect code indent for conditional statements (8, 14)
+#26: FILE: linked_list.c:26:
++	if (head == NULL) {
++	      head = temp;
+
+WARNING: struct  should normally be const
+#40: FILE: linked_list.c:40:
++	struct node *t;
+
+WARNING: struct  should normally be const
+#59: FILE: linked_list.c:59:
++	struct node *t, *temp;
+
+WARNING: struct  should normally be const
+#62: FILE: linked_list.c:62:
++	temp = (struct node *) malloc(sizeof(struct node *));
+
+WARNING: braces {} are not necessary for single statement blocks
+#75: FILE: linked_list.c:75:
++		while (t->next != NULL) {
++			t = t->next;
++		}
+
+WARNING: struct  should normally be const
+#91: FILE: linked_list.c:91:
++	struct node *t, *temp;
+
+WARNING: braces {} are not necessary for single statement blocks
+#100: FILE: linked_list.c:100:
++	while (t->next->next != NULL) {
++		t = t->next;
++
++	}
+
+WARNING: struct  should normally be const
+#115: FILE: linked_list.c:115:
++	struct node *temp, *t;
+
+WARNING: struct  should normally be const
+#118: FILE: linked_list.c:118:
++	temp = (struct node *) malloc(sizeof(struct node *));
+
+WARNING: line over 80 characters
+#132: FILE: linked_list.c:132:
++				printf(" List Index out of bounds error:exiting\n");
+
+WARNING: suspect code indent for conditional statements (16, 16)
+#143: FILE: linked_list.c:143:
++		} else {
+[...]
++		printf("node will be inserted after %d\n", t->data);
+
+WARNING: struct  should normally be const
+#158: FILE: linked_list.c:158:
++	struct node *t;
+
+WARNING: line over 80 characters
+#175: FILE: linked_list.c:175:
++					printf("ERROR:List Index out of bounds\n");
+
+WARNING: line over 80 characters
+#185: FILE: linked_list.c:185:
++				printf("node after %d will be removed\n ", t->data);
+
+WARNING: line over 80 characters
+#186: FILE: linked_list.c:186:
++				/* link predecessor and successor nodes bypassing the node to be deleted */
+
+WARNING: struct  should normally be const
+#195: FILE: linked_list.c:195:
++	struct node *temp;
+
+WARNING: unnecessary whitespace before a quoted newline
+#200: FILE: linked_list.c:200:
++		printf("Empty List \n");
+
+WARNING: Missing a blank line after declarations
+#214: FILE: linked_list.c:214:
++	char ch = 'y';
++	while ((ch != 'n') || (ch != 'N')) {
+
+WARNING: unnecessary whitespace before a quoted newline
+#222: FILE: linked_list.c:222:
++		printf("Enter your choice \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#228: FILE: linked_list.c:228:
++			printf("Enter the value to be inserted \n");
+
+WARNING: line over 80 characters
+#233: FILE: linked_list.c:233:
++			printf("Enter the value and position at which value is to be inserted \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#233: FILE: linked_list.c:233:
++			printf("Enter the value and position at which value is to be inserted \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#238: FILE: linked_list.c:238:
++			printf("Enter the value to be inserted \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#246: FILE: linked_list.c:246:
++			printf("Enter the position \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#251: FILE: linked_list.c:251:
++			printf("Enter the position \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#258: FILE: linked_list.c:258:
++			printf("Enter a valid input between 1 and 7 \n");
+
+WARNING: unnecessary whitespace before a quoted newline
+#261: FILE: linked_list.c:261:
++		printf("Enter 'n' or 'N' to quit the application \n");
+
+total: 1 errors, 33 warnings, 266 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+linked_list.c has style problems, please review.
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.

@@ -15,14 +15,13 @@ struct node *head = NULL;
 int insert_at_beg(int data)
 {
 	struct node *temp;
+
 	temp = (struct node *) malloc(sizeof(struct node));
 	if (temp == NULL) {
 		perror("failed to allocate memory: message from perror\n %s\n");
 		exit(1);
 	}
-
 	temp->data = data;
-
 	/* check if list is empty */
 	if (head == NULL) {
 	      head = temp;
@@ -114,7 +113,7 @@ int del_at_end(void)
 int insert_at_pos(int val, int pos)
 {
 	struct node *temp, *t;
-	int count = 1;
+	int count = 1, ret;
 
 	temp = (struct node *) malloc(sizeof(struct node *));
 	if (temp == NULL) {
@@ -125,7 +124,7 @@ int insert_at_pos(int val, int pos)
 	temp->data = val;
 	/* Check for insert at begining of list */
 	if (pos == 1) {
-		insert_at_beg(val);
+		ret = insert_at_beg(val);
 	} else {
 		while (count != (pos - 1)) {
 
@@ -137,11 +136,10 @@ int insert_at_pos(int val, int pos)
 			t = t->next;
 			count++;
 		}
-
 		/* check for insert at end case*/
 		if (t->next == NULL) {
 			printf("In case for ins at end\n");
-			insert_at_end(val);
+			ret = insert_at_end(val);
 		} else {
 		/* Debugging print */
 		printf("node will be inserted after %d\n", t->data);
@@ -158,7 +156,7 @@ int insert_at_pos(int val, int pos)
 int del_at_pos(int pos)
 {
 	struct node *t;
-	int count = 1;
+	int count = 1, ret;
 
 	t = head;
 	if (t == NULL) {
@@ -166,7 +164,7 @@ int del_at_pos(int pos)
 		exit(1);
 	} else {
 		if (pos == 1) {
-			del_at_beg();
+			ret = del_at_beg();
 
 		} else {
 
@@ -179,7 +177,7 @@ int del_at_pos(int pos)
 				}
 			}
 			if (t->next == NULL) {
-				del_at_end();
+				ret = del_at_end();
 
 			} else {
 
@@ -188,11 +186,7 @@ int del_at_pos(int pos)
 				/* link predecessor and successor nodes bypassing the node to be deleted */
 				t->next = t->next->next;
 			}
-
-
 		}
-
-
 	}
 
 }
@@ -214,25 +208,59 @@ void display_list(void)
 }
 int main(void)
 {
-	insert_at_beg(3);
-	insert_at_beg(5);
-	insert_at_beg(7);
-	insert_at_beg(9);
-	insert_at_beg(11);
-	insert_at_beg(12);
-	display_list();
-	del_at_beg();
-	display_list();
-	insert_at_end(15);
-	display_list();
-	del_at_end();
-	display_list();
-	insert_at_pos(10, 5);
-	display_list();
-	del_at_pos(5);
-	display_list();
+	/* A menu for linked list */
+	int ret = 0, choice = 0, val = 0, pos = 0;
+	char ch = 'y';
+	while ((ch != 'n') || (ch != 'N')) {
+		printf("1) Insert at begining\n");
+		printf("2) Insert at position\n");
+		printf("3) Insert at end\n");
+		printf("4) Delete at begining\n");
+		printf("5) Delete at position\n");
+		printf("6) Delete from end\n");
+		printf("7) display the linked list\n");
+		printf("Enter your choice \n");
+		scanf("%d", &choice);
 
+		switch (choice) {
+
+		case 1:
+			printf("Enter the value to be inserted \n");
+			scanf("%d", &val);
+			ret = insert_at_beg(val);
+			break;
+		case 2:
+			printf("Enter the value and position at which value is to be inserted \n");
+			scanf("%d %d", &val, &pos);
+			ret = insert_at_pos(val, pos);
+			break;
+		case 3:
+			printf("Enter the value to be inserted \n");
+			scanf("%d", &val);
+			ret = insert_at_end(val);
+			break;
+		case 4:
+			ret = del_at_beg();
+			break;
+		case 5:
+			printf("Enter the position \n");
+			scanf("%d", &pos);
+			ret = del_at_pos(pos);
+			break;
+		case 6:
+			printf("Enter the position \n");
+			ret = del_at_end();
+			break;
+		case 7:
+			display_list();
+			break;
+		default:
+			printf("Enter a valid input between 1 and 7 \n");
+
+		}
+		printf("Enter 'n' or 'N' to quit the application \n");
+		scanf("%c", &ch);
+	}
 	return 0;
-
 }
 
