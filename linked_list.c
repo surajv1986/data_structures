@@ -98,7 +98,7 @@ int del_at_end(void)
 		exit(1);
 	}
 	/* loop until the second last element is reached */
-	while(t->next->next != NULL) {
+	while (t->next->next != NULL) {
 		t = t->next;
 	
 	}
@@ -109,7 +109,51 @@ int del_at_end(void)
 	t->next = NULL;
 
 	return 0;
+}
 
+int insert_at_pos(int val, int pos)
+{
+	struct node *temp, *t;
+	int count = 1;
+
+	temp = (struct node *) malloc(sizeof(struct node*));
+	if (temp == NULL) {
+		perror("Error allocating Memory: msg from perror %s");
+		exit(1);
+	}
+	t = head;
+	temp->data = val;
+	/* Check for insert at begining of list */
+	if (pos == 1) {
+		insert_at_beg(val);
+	}
+	else {
+		while (count != (pos - 1)) {
+			/* increment to point to the subsequent element */
+			t = t->next;
+			count++;
+		}
+		
+		/* check for insert at end case*/
+		if (t->next == NULL) {
+			printf("In case for ins at end\n");
+		//	insert_at_end(val);
+		} else {
+		/* Debugging print */
+		printf("node will be inserted after %d\n", t->data);
+		/* link the new node to its successor */
+		temp->next = t->next;
+		/* link the new node to its predecessor */
+		t->next = temp;
+		
+		}
+	}
+	return 0;
+}
+
+int delete_at_pos(int pos)
+{
+	
 
 }
 void display_list(void)
@@ -126,9 +170,7 @@ void display_list(void)
 			temp = temp->next;
 		}
 		printf("\n");
-	
 	}		
-
 }
 int main(void)
 {
@@ -144,6 +186,8 @@ int main(void)
 	insert_at_end(15);
 	display_list();
 	del_at_end();
+	display_list();
+	insert_at_pos(10, 5);
 	display_list();
 
 	return 0;
