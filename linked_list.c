@@ -16,7 +16,7 @@ int insert_at_beg(int data)
 {
 	struct node *temp;
 	temp = (struct node *) malloc(sizeof(struct node));
-	if(temp == NULL) {
+	if (temp == NULL) {
 		perror("failed to allocate memory: message from perror\n %s\n");
 		exit(1);
 	}
@@ -25,7 +25,7 @@ int insert_at_beg(int data)
 
 	/* check if list is empty */
 	if (head == NULL) {
-	      head = temp;	  	    
+	      head = temp;
 	      head->next = NULL;
 	} else {
 		/* if list is not empty */
@@ -38,12 +38,12 @@ int insert_at_beg(int data)
 
 int del_at_beg(void)
 {
-	struct node *t;	
+	struct node *t;
 
 	/* check if list is empty */
 	if (head == NULL) {
 		printf("List is Empty cannot delete at beg\n");
-		exit(1);      
+		exit(1);
 	} else {
 		/* if list is not empty */
 		t = head;
@@ -58,23 +58,23 @@ int del_at_beg(void)
 int insert_at_end(int val)
 {
 	struct node *t, *temp;
-	
+
 	t = head;
 	temp = (struct node *) malloc(sizeof(struct node *));
-	if(temp == NULL) {
+	if (temp == NULL) {
 		perror("failed to allocate memory: message from perror\n %s\n");
 		exit(1);
 	}
 	temp->data = val;
 	/* check if the list is empty */
 	if (t == NULL) {
-	
+
 		printf("List empty please insert at begining first\n");
 
 	} else {
-		
+
 		while (t->next != NULL) {
-			t = t->next;			
+			t = t->next;
 		}
 		/* Debugging print */
 		printf("Element at tail is %d\n", t->data);
@@ -82,7 +82,7 @@ int insert_at_end(int val)
 		t->next = temp;
 		/* update the last element to point to null */
 		temp->next = NULL;
-	
+
 	}
 
 }
@@ -93,14 +93,14 @@ int del_at_end(void)
 
 	t = head;
 	if (t == NULL) {
-	
+
 		printf("Error: trying to Delete from an empty list\n");
 		exit(1);
 	}
 	/* loop until the second last element is reached */
 	while (t->next->next != NULL) {
 		t = t->next;
-	
+
 	}
 	/* Debugging print */
 	printf("The data at new tail has to be %d\n", t->data);
@@ -116,7 +116,7 @@ int insert_at_pos(int val, int pos)
 	struct node *temp, *t;
 	int count = 1;
 
-	temp = (struct node *) malloc(sizeof(struct node*));
+	temp = (struct node *) malloc(sizeof(struct node *));
 	if (temp == NULL) {
 		perror("Error allocating Memory: msg from perror %s");
 		exit(1);
@@ -126,11 +126,10 @@ int insert_at_pos(int val, int pos)
 	/* Check for insert at begining of list */
 	if (pos == 1) {
 		insert_at_beg(val);
-	}
-	else {
+	} else {
 		while (count != (pos - 1)) {
 
-			if ( t == NULL) {
+			if (t == NULL) {
 				printf(" List Index out of bounds error:exiting\n");
 				exit(1);
 			}
@@ -138,7 +137,7 @@ int insert_at_pos(int val, int pos)
 			t = t->next;
 			count++;
 		}
-		
+
 		/* check for insert at end case*/
 		if (t->next == NULL) {
 			printf("In case for ins at end\n");
@@ -150,7 +149,7 @@ int insert_at_pos(int val, int pos)
 		temp->next = t->next;
 		/* link the new node to its predecessor */
 		t->next = temp;
-		
+
 		}
 	}
 	return 0;
@@ -168,9 +167,9 @@ int del_at_pos(int pos)
 	} else {
 		if (pos == 1) {
 			del_at_beg();
-		
+
 		} else {
-		
+
 			while (count != (pos - 1)) {
 				t = t->next;
 				count++;
@@ -181,37 +180,37 @@ int del_at_pos(int pos)
 			}
 			if (t->next == NULL) {
 				del_at_end();
-			
+
 			} else {
-			
+
 				/* Debugging print */
 				printf("node after %d will be removed\n ", t->data);
 				/* link predecessor and successor nodes bypassing the node to be deleted */
 				t->next = t->next->next;
 			}
 
-				
+
 		}
-		
-	
-	}	
+
+
+	}
 
 }
 void display_list(void)
 {
 	struct node *temp;
-	
+
 	temp = head;
 	/* If list is empty */
-	if(temp == NULL)
+	if (temp == NULL)
 		printf("Empty List \n");
 	else {
-		while(temp != NULL) {
-			printf("%d->", temp->data);	
+		while (temp != NULL) {
+			printf("%d->", temp->data);
 			temp = temp->next;
 		}
 		printf("\n");
-	}		
+	}
 }
 int main(void)
 {
