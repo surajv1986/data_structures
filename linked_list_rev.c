@@ -277,7 +277,7 @@ int reverse_list(void)
 	int count = 1;
 
 	prev = head;
-	if (prev == NULL) {	
+	if (prev == NULL) {
 		printf("ERROR: Trying to reverse an empty list\n");
 	} else if (prev->next == NULL) {
 		printf("The reverse of a list containing a single element is the same as the original list \n");
@@ -285,12 +285,12 @@ int reverse_list(void)
 		curr = head->next;
 		/* store backup of successor node */
 		successor = prev->next->next;
-		/* Traverse to the last element in the list */
+		/* For each element in the list */
 		while (curr != NULL) {
 			/* flip the current pointer */
 			curr->next = prev;
 			/* set the tail of the list to NULL */
-			if ( count == 1) 
+			if (count == 1)
 				prev->next = NULL;
 			if ((successor == NULL) || (curr->next == NULL)) {
 				curr->next = prev;
@@ -305,6 +305,4 @@ int reverse_list(void)
 			count++;
 		}
 	}
-
-
 }
