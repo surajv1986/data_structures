@@ -1,166 +1,162 @@
 WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
-#1: FILE: linked_list_rev.c:1:
-+/* A simple program to demonstrate reversing a singly linked list */
+#1: FILE: linked_list_sort.c:1:
++/* A simple program to sort a singly linked list */
 
 WARNING: struct  should normally be const
-#10: FILE: linked_list_rev.c:10:
+#11: FILE: linked_list_sort.c:11:
 +struct node {
 
 WARNING: struct  should normally be const
-#12: FILE: linked_list_rev.c:12:
+#13: FILE: linked_list_sort.c:13:
 +	struct node *next;
 
 ERROR: do not initialise globals to NULL
-#16: FILE: linked_list_rev.c:16:
+#17: FILE: linked_list_sort.c:17:
 +struct node *head = NULL;
 
 WARNING: struct  should normally be const
-#16: FILE: linked_list_rev.c:16:
+#17: FILE: linked_list_sort.c:17:
 +struct node *head = NULL;
 
 WARNING: struct  should normally be const
-#20: FILE: linked_list_rev.c:20:
+#21: FILE: linked_list_sort.c:21:
 +	struct node *temp;
 
 WARNING: struct  should normally be const
-#22: FILE: linked_list_rev.c:22:
+#23: FILE: linked_list_sort.c:23:
 +	temp = (struct node *) malloc(sizeof(struct node));
 
 WARNING: suspect code indent for conditional statements (8, 14)
-#29: FILE: linked_list_rev.c:29:
+#30: FILE: linked_list_sort.c:30:
 +	if (head == NULL) {
 +	      head = temp;
 
 WARNING: struct  should normally be const
-#43: FILE: linked_list_rev.c:43:
+#44: FILE: linked_list_sort.c:44:
 +	struct node *t;
 
 WARNING: struct  should normally be const
-#62: FILE: linked_list_rev.c:62:
+#63: FILE: linked_list_sort.c:63:
 +	struct node *t, *temp;
 
 WARNING: struct  should normally be const
-#65: FILE: linked_list_rev.c:65:
+#66: FILE: linked_list_sort.c:66:
 +	temp = (struct node *) malloc(sizeof(struct node *));
 
 WARNING: braces {} are not necessary for single statement blocks
-#78: FILE: linked_list_rev.c:78:
+#79: FILE: linked_list_sort.c:79:
 +		while (t->next != NULL) {
 +			t = t->next;
 +		}
 
 WARNING: struct  should normally be const
-#93: FILE: linked_list_rev.c:93:
+#93: FILE: linked_list_sort.c:93:
 +	struct node *t, *temp;
 
 WARNING: braces {} are not necessary for single statement blocks
-#102: FILE: linked_list_rev.c:102:
+#102: FILE: linked_list_sort.c:102:
 +	while (t->next->next != NULL) {
 +		t = t->next;
 +
 +	}
 
 WARNING: struct  should normally be const
-#117: FILE: linked_list_rev.c:117:
+#117: FILE: linked_list_sort.c:117:
 +	struct node *temp, *t;
 
 WARNING: struct  should normally be const
-#120: FILE: linked_list_rev.c:120:
+#120: FILE: linked_list_sort.c:120:
 +	temp = (struct node *) malloc(sizeof(struct node *));
 
 WARNING: line over 80 characters
-#134: FILE: linked_list_rev.c:134:
+#134: FILE: linked_list_sort.c:134:
 +				printf(" List Index out of bounds error:exiting\n");
 
 WARNING: suspect code indent for conditional statements (16, 16)
-#145: FILE: linked_list_rev.c:145:
+#145: FILE: linked_list_sort.c:145:
 +		} else {
 [...]
 +		printf("node will be inserted after %d\n", t->data);
 
 WARNING: struct  should normally be const
-#160: FILE: linked_list_rev.c:160:
+#160: FILE: linked_list_sort.c:160:
 +	struct node *t;
 
 WARNING: line over 80 characters
-#177: FILE: linked_list_rev.c:177:
+#177: FILE: linked_list_sort.c:177:
 +					printf("ERROR:List Index out of bounds\n");
 
 WARNING: line over 80 characters
-#187: FILE: linked_list_rev.c:187:
+#187: FILE: linked_list_sort.c:187:
 +				printf("node after %d will be removed\n ", t->data);
 
 WARNING: line over 80 characters
-#188: FILE: linked_list_rev.c:188:
+#188: FILE: linked_list_sort.c:188:
 +				/* link predecessor and successor nodes bypassing the node to be deleted */
 
 WARNING: struct  should normally be const
-#197: FILE: linked_list_rev.c:197:
+#197: FILE: linked_list_sort.c:197:
 +	struct node *temp;
 
-WARNING: unnecessary whitespace before a quoted newline
-#202: FILE: linked_list_rev.c:202:
-+		printf("Empty List \n");
+WARNING: line over 80 characters
+#203: FILE: linked_list_sort.c:203:
++		printf("ERROR: Traverse index %d exceeds list length %d\n", index, length);
+
+WARNING: struct  should normally be const
+#225: FILE: linked_list_sort.c:225:
++	struct node *temp = head;
+
+WARNING: struct  should normally be const
+#237: FILE: linked_list_sort.c:237:
++	struct node *temp = head, *t = head->next;
 
 WARNING: Missing a blank line after declarations
-#216: FILE: linked_list_rev.c:216:
+#265: FILE: linked_list_sort.c:265:
 +	char ch;
 +	while (1) {
 
 WARNING: unnecessary whitespace before a quoted newline
-#225: FILE: linked_list_rev.c:225:
+#274: FILE: linked_list_sort.c:274:
 +		printf("0) quit the program \n ");
 
 WARNING: unnecessary whitespace before a quoted newline
-#226: FILE: linked_list_rev.c:226:
+#275: FILE: linked_list_sort.c:275:
 +		printf("Enter your choice \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#235: FILE: linked_list_rev.c:235:
+#285: FILE: linked_list_sort.c:285:
 +			printf("Enter the value to be inserted \n");
 
 WARNING: line over 80 characters
-#240: FILE: linked_list_rev.c:240:
+#290: FILE: linked_list_sort.c:290:
 +			printf("Enter the value and position at which value is to be inserted \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#240: FILE: linked_list_rev.c:240:
+#290: FILE: linked_list_sort.c:290:
 +			printf("Enter the value and position at which value is to be inserted \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#245: FILE: linked_list_rev.c:245:
+#295: FILE: linked_list_sort.c:295:
 +			printf("Enter the value to be inserted \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#253: FILE: linked_list_rev.c:253:
+#303: FILE: linked_list_sort.c:303:
 +			printf("Enter the position \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#258: FILE: linked_list_rev.c:258:
+#308: FILE: linked_list_sort.c:308:
 +			printf("Enter the position \n");
 
 WARNING: unnecessary whitespace before a quoted newline
-#267: FILE: linked_list_rev.c:267:
+#322: FILE: linked_list_sort.c:322:
 +			printf("Enter a valid input between 1 and 7 \n");
 
-WARNING: struct  should normally be const
-#276: FILE: linked_list_rev.c:276:
-+	struct node *curr, *prev, *successor;
-
-WARNING: line over 80 characters
-#283: FILE: linked_list_rev.c:283:
-+		printf("The reverse of a list containing a single element is the same as the original list \n");
-
-WARNING: unnecessary whitespace before a quoted newline
-#283: FILE: linked_list_rev.c:283:
-+		printf("The reverse of a list containing a single element is the same as the original list \n");
-
-total: 1 errors, 36 warnings, 308 lines checked
+total: 1 errors, 35 warnings, 327 lines checked
 
 NOTE: For some of the reported defects, checkpatch may be able to
       mechanically convert to the typical style using --fix or --fix-inplace.
 
-linked_list_rev.c has style problems, please review.
+linked_list_sort.c has style problems, please review.
 
 NOTE: If any of the errors are false positives, please report
       them to the maintainer, see CHECKPATCH in MAINTAINERS.
