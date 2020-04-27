@@ -52,6 +52,7 @@ int del_at_beg(void)
 		t = head;
 		/* increment head */
 		t = t->next;
+		t->prev = NULL;
 		/* Update head */
 		head = t;
 
