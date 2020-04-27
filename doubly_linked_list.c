@@ -63,7 +63,6 @@ int insert_at_end(int val)
 {
 	struct node *t, *temp;
 
-	t = head;
 	temp = (struct node *) malloc(sizeof(struct node *));
 	if (temp == NULL) {
 		perror("failed to allocate memory: message from perror\n %s\n");
@@ -71,21 +70,26 @@ int insert_at_end(int val)
 	}
 	temp->data = val;
 	/* check if the list is empty */
-	if (t == NULL) {
-
-		printf("List empty please insert at begining first\n");
+	if (tail == NULL) {
+		head = tail = temp;
+		head->next = NULL;
+		head->prev = NULL;
+		tail->prev = NULL;
+		tail->next = NULL;
 
 	} else {
 
-		while (t->next != NULL) {
-			t = t->next;
-		}
+		t = tail;
 		/* Debugging print */
 		printf("Element at tail is %d\n", t->data);
+		/* set prev to the current tail node */
+		temp->prev = t;
 		/* point to the new element to be added */
 		t->next = temp;
 		/* update the last element to point to null */
 		temp->next = NULL;
+		/* update tail */
+		tail = temp;
 
 	}
 
@@ -95,22 +99,21 @@ int del_at_end(void)
 {
 	struct node *t, *temp;
 
-	t = head;
+	t = tail;
 	if (t == NULL) {
 
 		printf("Error: trying to Delete from an empty list\n");
 		exit(1);
 	}
-	/* loop until the second last element is reached */
-	while (t->next->next != NULL) {
-		t = t->next;
-
-	}
+	temp = t->prev;
 	/* Debugging print */
-	printf("The data at new tail has to be %d\n", t->data);
-	temp = t;
-	/* remove the tail element*/
-	t->next = NULL;
+	printf("The data at new tail has to be %d\n", temp->data);
+	/* break the link between old tail and its predecessor */
+	t->prev = NULL;
+	/* Set the successor node to NULL*/
+	temp->next = NULL;
+	/* update tail pointer */
+	tail = temp;
 
 	return 0;
 }
