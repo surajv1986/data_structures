@@ -120,7 +120,7 @@ int del_at_end(void)
 
 int insert_at_pos(int val, int pos)
 {
-	struct node *temp, *t;
+	struct node *temp, *t, *successor;
 	int count = 1, ret;
 
 	temp = (struct node *) malloc(sizeof(struct node *));
@@ -151,6 +151,11 @@ int insert_at_pos(int val, int pos)
 		} else {
 		/* Debugging print */
 		printf("node will be inserted after %d\n", t->data);
+		successor = t->next;
+		/* link the new node to its predecessor */
+		temp->prev = t;
+		/* link the prev pointer of the successor to the new node */
+		successor->prev = temp;
 		/* link the new node to its successor */
 		temp->next = t->next;
 		/* link the new node to its predecessor */
@@ -163,7 +168,7 @@ int insert_at_pos(int val, int pos)
 
 int del_at_pos(int pos)
 {
-	struct node *t;
+	struct node *t, *successor;
 	int count = 1, ret;
 
 	t = head;
@@ -188,11 +193,14 @@ int del_at_pos(int pos)
 				ret = del_at_end();
 
 			} else {
-
+				successor = t->next->next;
 				/* Debugging print */
 				printf("node after %d will be removed\n ", t->data);
+				printf("The node to be removed is %d \n", t->next->data);
+				printf("The new successor node is %d\n", successor->data);
 				/* link predecessor and successor nodes bypassing the node to be deleted */
 				t->next = t->next->next;
+				successor->prev = t;
 			}
 		}
 	}
