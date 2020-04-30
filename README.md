@@ -2,7 +2,7 @@
 Data Structures using C
 Tasks Completed
 1) Singly Linked Lists
-   Supported Operations
+     Supported Operations
    1) insert at begining
    2) insert at position
    3) insert at end
@@ -13,7 +13,7 @@ Tasks Completed
 2) Singly Linked List Reversal
 3) Sorting Singly Linked List using Bubble Sort
 4) Doubly Linked List
-   Supported Operations
+     Supported Operations
    1) insert at begining
    2) insert at position
    3) insert at end
