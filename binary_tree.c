@@ -2,11 +2,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node  
-{ 
-  int data; 
-  struct node *left; 
-  struct node *right; 
+struct node {
+  int data;
+  struct node *left;
+  struct node *right;
 };
 
 struct node *new_node(int key)
@@ -32,7 +31,7 @@ void inorder(struct node *root)
 		printf("%d\n", root->data);
 		inorder(root->right);
 	}
-	
+
 }
 
 void postorder(struct node *root)
@@ -46,11 +45,11 @@ void postorder(struct node *root)
 
 struct node *insert(struct node *node, int key)
 {
-	
-	if (node == NULL) 
+
+	if (node == NULL)
 		return new_node(key);
 
-	if (key < node->data) 
+	if (key < node->data)
 		node->left = insert(node->left, key);
 	else if (key > node->data)
 		node->right = insert(node->left, key);
@@ -74,6 +73,6 @@ int main(void)
 	inorder(root);
 	printf("Begining Post Order Traversal of binary tree\n");
 	postorder(root);
-	
+
 	return 0;
 }
