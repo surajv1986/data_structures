@@ -42,12 +42,14 @@ void findVerticalOrder(struct node *root, int hd, map <int, vector <int>> &m)
 void print_vertical_order(struct node *root)
 {
 	map <int, vector <int>> m;
-	int hd = 0;
+	int hd = 0, j = 0;
 	
 	findVerticalOrder(root, hd, m);
-	map <int, vector<int>>::iterator i;
+	map <int, vector<int> > :: iterator i;
 	for (i = m.begin(); i != m.end(); i++) {
-		cout << i->second[i] << endl;	
+		for (int j = 0; j < i->second.size(); ++j)
+            		cout << i->second[j] << " ";
+        		cout << endl;
 	}
 
 }
